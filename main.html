@@ -1,0 +1,796 @@
+OCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>world city</title>
+  <style>
+    style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f1a;
+  }
+
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(20, 20, 40, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+
+  /* Logo */
+  .logo {
+    color: #00ffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ffff;
+  }
+
+  /* Nav Links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    transition: 0.3s;
+  }
+
+  /* Glow Hover Effect */
+  .nav-links li a:hover {
+    color: #00ffff;
+    text-shadow: 
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 20px #00ffff;
+  }
+
+  /* Button */
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    background: #00ffff;
+    color: black;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  }
+
+  .btn:hover {
+    box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    transform: scale(1.05);
+  }
+    :root {
+      --bg: #f7f4ed;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: #fffdf8;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --brand: #c96c42;
+      --brand-dark: #994b2a;
+      --accent: #0d7a7d;
+      --line: rgba(31, 41, 55, 0.12);
+      --shadow: 0 18px 50px rgba(43, 32, 24, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(201, 108, 66, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(13, 122, 125, 0.14), transparent 25%),
+        linear-gradient(180deg, #fbf8f1 0%, #f5f2ea 55%, #efe7db 100%);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(247, 244, 237, 0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--brand-dark);
+    }
+
+    .hero {
+      padding: 4.5rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(201, 108, 66, 0.18);
+      color: var(--brand-dark);
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 6vw, 5.4rem);
+      line-height: 0.95;
+      margin: 0 0 1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0 0 1.5rem;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 1.3rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .hero-card {
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual {
+      min-height: 500px;
+      background:
+        linear-gradient(160deg, rgba(13, 122, 125, 0.12), rgba(201, 108, 66, 0.15)),
+        url("https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1200&q=80") center/cover;
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .floating-panel {
+      position: absolute;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      width: min(290px, calc(100% - 2.5rem));
+      padding: 1.1rem;
+      background: rgba(255, 253, 248, 0.9);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+    }
+
+    .floating-panel h3,
+    .section-heading h2,
+    .map-copy h2,
+    .cta h2 {
+      margin: 0 0 0.6rem;
+      line-height: 1.05;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.65rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .card-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(201, 108, 66, 0.12);
+      color: var(--brand-dark);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .showcase-item {
+      min-height: 320px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: end;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+
+    .showcase-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.58));
+    }
+
+    .showcase-item > div {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-time {
+      font-weight: 700;
+      color: var(--brand-dark);
+    }
+
+    .map-section {
+      padding: 4rem 0 5rem;
+    }
+
+    .map-shell {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .map-copy,
+    .map-frame {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .map-copy {
+      padding: 1.7rem;
+    }
+
+    .map-copy p,
+    .map-copy li,
+    .footer p,
+    .footer a {
+      color: var(--muted);
+    }
+
+    .map-list {
+      padding-left: 1.2rem;
+      margin: 1rem 0 0;
+    }
+
+    .map-frame {
+      overflow: hidden;
+      min-height: 480px;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      border: 0;
+    }
+
+    .cta {
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(201, 108, 66, 0.12), rgba(13, 122, 125, 0.14));
+      border: 1px solid rgba(201, 108, 66, 0.18);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .cards,
+      .showcase,
+      .map-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 380px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark">wm</span>
+        <span>world map</span>
+      </a>
+      >
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#highlights">Highlights</a></li>
+          <li><a href="#itinerary">Itinerary</a></li>
+          <li><a href="#location">Map</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="C:\Users\pathr\OneDrive\Desktop\hcj\ii.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Travel, food, culture, and local discovery</div>
+          <h1>Build a website with a beautiful Google Map section.</h1>
+          <p>
+            This sample page gives you a long HTML layout with a stylish landing
+            section, feature cards, destination highlights, a sample itinerary,
+            and a live Google Map embedded directly into the website.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#location">Open The Map</a>
+            <a class="button button-secondary" href="#about">Read The Guide</a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <strong>24</strong>
+              <span>Local spots curated for one smooth trip</span>
+            </div>
+            <div class="stat">
+              <strong>4.9</strong>
+              <span>Average traveler rating from sample reviews</span>
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              <span>Simple planning steps from browse to booking</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-visual">
+            <div class="floating-panel">
+              <h3>Featured stop</h3>
+              <p>
+                Explore a neighborhood route with markets, food, museums, and a
+                clear map view visitors can open right from your website.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Why this layout works</h2>
+          <p>
+            The page is designed to feel polished and long enough for a landing
+            site, portfolio section, business showcase, or travel guide. You can
+            replace the text with your own brand, location, or services.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-number">01</div>
+            <h3>Clear structure</h3>
+            <p>
+              The content is split into readable sections so users can scan the
+              page quickly and jump directly to the map or details they need.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-number">02</div>
+            <h3>Embedded Google Map</h3>
+            <p>
+              A map is built right into the page using an iframe, which is the
+              easiest way to display a location without writing JavaScript.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-number">03</div>
+            <h3>Responsive design</h3>
+            <p>
+              The layout collapses cleanly for smaller screens, so the website
+              still looks good on phones and tablets.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="highlights">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Destination highlights</h2>
+          <p>
+            Use blocks like these to showcase top attractions, business branches,
+            hotels, service areas, or store locations around your chosen city.
+          </p>
+        </div>
+        <div class="showcase">
+          <article
+            class="showcase-item"
+            style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80');"
+          >
+            <div>
+              <h3>Historic center</h3>
+              <p>
+                Add a short story about the main district, its architecture, and
+                why visitors should start there.
+              </p>
+            </div>
+          </article>
+          <article
+            class="showcase-item"
+            style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');"
+          >
+            <div>
+              <h3>Food trail</h3>
+              <p>
+                Recommend cafes, local dishes, restaurants, or markets that help
+                your website feel personal and useful.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="itinerary">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Sample one-day itinerary</h2>
+          <p>
+            A longer website feels more complete when visitors can imagine how
+            they will actually use the location, service, or route.
+          </p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-time">08:30 AM</div>
+            <div>
+              <h3>Breakfast and planning</h3>
+              <p>
+                Start with a calm section that introduces the area, includes
+                opening hours, and gives a short note about transport options.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">11:00 AM</div>
+            <div>
+              <h3>Main attraction visit</h3>
+              <p>
+                Highlight your key destination here. This could be a monument,
+                shop, office, resort, cafe, or tourist landmark.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">02:00 PM</div>
+            <div>
+              <h3>Lunch and nearby stops</h3>
+              <p>
+                Mention nearby restaurants, side attractions, or related services
+                that can be explored after the main destination.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">05:30 PM</div>
+            <div>
+              <h3>Evening walk and return</h3>
+              <p>
+                End with a useful closing section that points users back to the
+                map so they can get directions immediately.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section" id="location">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Google Map inside the website</h2>
+          <p>
+            This section uses a Google Maps embed. You can swap the location with
+            your own business, home page target city, office, restaurant, or any
+            public place you want to show.
+          </p>
+        </div>
+
+        <div class="map-shell">
+          <div class="map-copy">
+            <h2>Visit the location</h2>
+            <p>
+              The map on the right is embedded directly with an iframe. For this
+              demo, it points to the Taj Mahal in Agra. You can replace the URL
+              with any Google Maps embed link.
+            </p>
+            <ul class="map-list">
+              <li>Fast way to add a map without coding an API integration</li>
+              <li>Works well for contact pages, travel pages, and business sites</li>
+              <li>Visitors can zoom, explore, and open directions</li>
+            </ul>
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="https://maps.google.com/?q=Taj+Mahal+Agra"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open In Google Maps
+              </a>
+              <a class="button button-secondary" href="#contact">Contact Section</a>
+            </div>
+          </div>
+
+          <div class="map-frame" aria-label="Google map showing location">
+            <iframe
+              src="https://www.google.com/maps?q=Taj+Mahal+Agra&z=15&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen"
+            ></iframe>
+            <div class="hero-actions" style="justify-content: center; margin-bottom: 0;">
+  <a class="button button-primary" href="tel:+9597807415">Call: +91 95978 07415</a>
+  <a class="button button-secondary" href="mailto:travel@example.com">Email: vanavenu445566@gmail.com</a>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="cta">
+          <h2>Ready to customize this page?</h2>
+          <p>
+            Get the word out
+Embed maps in your website or blog.
+
+
+Make maps together
+Work together on building your map, just like Google Docs.
+
+
+Works with Drive
+Easily organize all your maps alongside your other documents in Google Drive.
+          </p>
+          <div class="hero-actions" style="justify-content: center; margin-bottom: 0;">
+            
+            <a class="button button-secondary" href="#top">Back To Top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <p>City Explorer Template. Built as a long single-file HTML demo with a Google Map.</p>
+      <p>Written by "Dinesh Daniel"</p><br>
+      <a class="button button-primary" href="tel:+9597807415">Call Us</a><br>
+      <a class="button button-secondary" href="mailto:vanavenu445566@gmail.com">Email:</a>
+     
+    </div>
+  </footer>
+</body>
+</html>

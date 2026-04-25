@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#2b2e4a,#1a1c2c);
+  color:#fff;
+}
+
+/* MAIN CONTAINER */
+.container{
+  display:flex;
+  width:900px;
+  height:550px;
+  border-radius:20px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* LEFT PANEL */
+.left{
+  flex:1;
+  background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover;
+  position:relative;
+}
+
+.left::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent,#000);
+}
+
+.left-text{
+  position:absolute;
+  bottom:30px;
+  left:30px;
+}
+
+.left-text h2{
+  font-size:24px;
+}
+
+/* RIGHT PANEL */
+.right{
+  flex:1;
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* FORM */
+.right h1{
+  margin-bottom:10px;
+}
+
+.right p{
+  font-size:14px;
+  color:#aaa;
+  margin-bottom:20px;
+}
+
+.input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  outline:none;
+  border-radius:8px;
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+}
+
+.checkbox{
+  margin:15px 0;
+  font-size:13px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:linear-gradient(90deg,#7b5cff,#5efcff);
+  color:#fff;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+/* SOCIAL */
+.social{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.social button{
+  flex:1;
+  background:rgba(255,255,255,0.08);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT -->
+  <div class="left">
+    <div class="left-text">
+      <h2>Capturing Moments,<br>Creating Memories</h2>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <h1>Create an account</h1>
+    <p>Already have an account? Login</p>
+
+    <input class="input" placeholder="First Name">
+    <input class="input" placeholder="Last Name">
+    <input class="input" placeholder="Email">
+    <input class="input" type="password" placeholder="Password">
+
+    <div class="checkbox">
+      <input type="checkbox"> I agree to Terms & Conditions
+    </div>
+
+    <button>Create Account</button>
+
+    <div class="social">
+      <button>Google</button>
+      <button>Apple</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
